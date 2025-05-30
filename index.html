@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Tank Cleaner Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-brand">Water Tank Cleaner</div>
+    <div class="user-info">
+      <span id="userEmail"></span>
+      <button class="btn btn-small" onclick="logout()">Logout</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Dashboard</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="alerts.html">Alerts</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Dashboard</h1>
+    <div class="dashboard-container">
+      <div class="status-card">
+        <h2>Current Status</h2>
+        <div class="ph-input">
+          <label for="phInput">Enter pH Value:</label>
+          <input type="number" id="phInput" step="0.1" min="0" max="14">
+          <button class="btn" onclick="updateManualPh()">Update</button>
+        </div>
+        <div class="ph-value">
+          <span>Current pH Value:</span>
+          <span id="phValue">7.4</span>
+        </div>
+        <div class="tank-status" id="tankStatus">Safe ✅</div>
+      </div>
+      <div class="action-card">
+        <h2>Actions</h2>
+        <button class="btn" onclick="window.location.href='schedule.html'" style="display: none;">Schedule Cleaning</button>
+      </div>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      emailjs.init("iE7UxuhqqnWl9zl1l"); // Replace with your EmailJS public key
+      initDashboard();
+    });
+  </script>
+</body>
+</html>

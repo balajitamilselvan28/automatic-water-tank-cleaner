@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Tank Cleaner - Alerts</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-brand">Water Tank Cleaner</div>
+    <div class="user-info">
+      <span id="userEmail"></span>
+      <button class="btn btn-small" onclick="logout()">Logout</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="alerts.html" class="active">Alerts</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>System Alerts</h1>
+    <div class="alerts-list" id="alertsList"></div>
+  </main>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      checkAuth();
+      updateUserInfo();
+      updateAlertsDisplay();
+    });
+  </script>
+</body>
+</html>

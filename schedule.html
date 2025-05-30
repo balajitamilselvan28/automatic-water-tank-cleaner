@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Tank Cleaner - Schedule</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-brand">Water Tank Cleaner</div>
+    <div class="user-info">
+      <span id="userEmail"></span>
+      <button class="btn btn-small">Logout</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="schedule.html" class="active">Schedule</a></li>
+      <li><a href="alerts.html">Alerts</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Schedule Cleaning</h1>
+    <div class="schedule-form">
+      <div class="form-group">
+        <label for="cleaningDate">Select Date and Time:</label>
+        <input type="datetime-local" id="cleaningDate">
+      </div>
+      <button class="btn" onclick="scheduleCleaning()">Confirm Schedule</button>
+    </div>
+    <div id="scheduleDisplay">No cleaning scheduled</div>
+  </main>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      checkAuth();
+      console.log('schedule.html DOMContentLoaded - userEmail in localStorage:', localStorage.getItem('userEmail'));
+      updateUserInfo();
+      updateScheduleDisplay();
+    });
+  </script>
+  <script>
+    // Add a log before scheduleCleaning is called (though it's triggered by onclick)
+    // We'll rely on the log inside sendEmailNotification instead, as that's closer to the failure point.
+    // The 'No user email found...' log is already telling us it's missing when scheduleCleaning -> sendEmailNotification runs.
+    // The key is to see if it's present earlier.
+  </script>
+</body>
+</html>
